@@ -3,6 +3,7 @@ let inputImg;
 let statusMsg;
 let transferBtn;
 let style1;
+let resultImage;
 
 function setup() {
   noCanvas();
@@ -31,7 +32,8 @@ function transferImages() {
   statusMsg.html('Applying Style Transfer...!');
 
   style1.transfer(inputImg, function (err, result) {
-    createImg(result.src).parent('styleA');
+    resultImage = createImg(result.src).parent('styleA');
+    resultImage.save('result','jpg')
   });
 
   statusMsg.html('Done!');
